@@ -33,19 +33,10 @@ public class DiscScript : MonoBehaviour
         {
             Shoot();
         }
-        else if (UIScript.Hits == 0)
-        {
-            GameOver();
-        }
-
-       
-        
+      
     }
 
-    private void GameOver()
-    {
-        throw new System.NotImplementedException();
-    }
+
 
     private void Shoot()
     {
@@ -60,8 +51,11 @@ public class DiscScript : MonoBehaviour
         UIScript.Hits--; 
 
     }
-
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
+}
 
 
 
