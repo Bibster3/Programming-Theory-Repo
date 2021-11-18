@@ -9,11 +9,16 @@ public class UIScript : MonoBehaviour
     public static int Score;
     public Text hitText;
     public Text scoreText;
+    public Text gameOverText; 
+
     // Start is called before the first frame update
     void Start()
     {
         Hits = 30;
-        Score = 0; 
+        Score = 0;
+
+        gameOverText.gameObject.SetActive(false);
+
 
     }
 
@@ -22,5 +27,19 @@ public class UIScript : MonoBehaviour
     {
         scoreText.text = "Score " + Score;
         hitText.text = "Hits Left " + Hits;
+
+
+
+        if (Hits==0)
+        {
+            GameOver(); 
+        }
+
+    }
+    void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
+
+
     }
 }
