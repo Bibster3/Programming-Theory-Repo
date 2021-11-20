@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour
@@ -9,16 +10,14 @@ public class UIScript : MonoBehaviour
     public static int Score;
     public Text hitText;
     public Text scoreText;
-    public Text gameOverText; 
+    public Text gameOverText;
 
     // Start is called before the first frame update
     void Start()
     {
         Hits = 30;
         Score = 0;
-
         gameOverText.gameObject.SetActive(false);
-
 
     }
 
@@ -28,11 +27,9 @@ public class UIScript : MonoBehaviour
         scoreText.text = "Score " + Score;
         hitText.text = "Hits Left " + Hits;
 
-
-
-        if (Hits==0)
+        if (Hits == 0)
         {
-            GameOver(); 
+            GameOver();
         }
 
     }
@@ -40,6 +37,15 @@ public class UIScript : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
 
+    }
 
+   public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }
