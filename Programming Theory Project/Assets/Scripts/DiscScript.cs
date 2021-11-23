@@ -5,7 +5,7 @@ public class DiscScript : MonoBehaviour
     public GameObject discPrefab;
     public GameObject discLounchPosition;
    
-    float speed = 0.18f;
+    public float speed = 0.18f;
     float minX = -0f;
     float maxX = 1.66f;
     float horizontalAxis;
