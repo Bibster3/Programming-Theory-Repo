@@ -10,6 +10,11 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void LoadRules()
     {
         SceneManager.LoadScene(2);
