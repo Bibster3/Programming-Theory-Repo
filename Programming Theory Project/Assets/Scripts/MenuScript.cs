@@ -5,25 +5,53 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-    
+    [SerializeField] RectTransform fader;
+
+    private void Start()
+    {
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader,1,0);
+        LeanTween.alpha(fader, 0, 0.5f).setOnComplete(() => {
+            fader.gameObject.SetActive(false); 
+            });
+
+    }
     public void PlayGame()
     {
-        SceneManager.LoadScene(0);
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 0, 0);
+        LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() => {
+            SceneManager.LoadScene(0);
+        });
+        
     }
 
     public void GoToMenu()
     {
-        SceneManager.LoadScene(1);
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 0, 0);
+        LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() => {
+            SceneManager.LoadScene(1);
+        });
     }
     public void LoadRules()
     {
-        SceneManager.LoadScene(2);
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 0, 0);
+        LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() => {
+            SceneManager.LoadScene(2);
+        });
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit"); 
-        Application.Quit();
+        Debug.Log("Quit");
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 0, 0);
+        LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() => {
+            Application.Quit();
+        });
+        
     }
 
 }
