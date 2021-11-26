@@ -6,28 +6,29 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
     Renderer[] children;
-
+    private AudioSource scoreSound; 
 
     public void Start()
     {
+        
     }
     private void OnTriggerEnter(Collider other)
     {
-
-
+        scoreSound = other.GetComponentInChildren<AudioSource>();
         children = other.GetComponentsInChildren<Renderer>();
 
         foreach (Renderer rend in children)
         {
             StartCoroutine(SwitchColor(rend));
-        }
+
+          }
 
         if (other.gameObject.tag == "1")
         {
-            
 
+            
             UIScript.Score = UIScript.Score + 1;
-              
+
         }
 
         if (other.gameObject.tag == "2")
@@ -44,7 +45,10 @@ public class ScoreScript : MonoBehaviour
         if (other.gameObject.tag == "4")
         {
             UIScript.Score = UIScript.Score + 4;
+        
         }
+        scoreSound.Play(); 
+
         Debug.Log("TriggerHit " + UIScript.Score);
 
     }

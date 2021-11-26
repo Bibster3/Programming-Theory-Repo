@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1723388379728932690}
   - component: {fileID: 2414291574080802450}
   - component: {fileID: 7404157883236229823}
-  - component: {fileID: 4548752343460805742}
   - component: {fileID: 6840742738169243107}
+  - component: {fileID: 6440232136481525309}
   m_Layer: 0
   m_Name: ShootingDisc
   m_TagString: Untagged
@@ -113,18 +113,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4548752343460805742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454311026080140058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53d3aba68a24fe84a89ae86a81c00a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &6840742738169243107
 AudioSource:
   m_ObjectHideFlags: 0
@@ -221,3 +209,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6440232136481525309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454311026080140058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d3aba68a24fe84a89ae86a81c00a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreSound: {fileID: 0}
