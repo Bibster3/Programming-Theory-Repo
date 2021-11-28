@@ -7,7 +7,7 @@ public class InstructionMenu: MonoBehaviour
 {
     public void Start()
     {
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>().PlayMusic();
+      /*  GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>().PlayMusic(); */
 
     }
 

@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MusicPlayer : MonoBehaviour
 {
     private AudioSource _audioSource;
     private GameObject[] other;
     private bool NotFirst = false;
+  
    
+
+
     private void Awake()
     {
+           
+        
         other = GameObject.FindGameObjectsWithTag("Music");
+
 
         foreach (GameObject oneOther in other)
         {
@@ -23,48 +30,31 @@ public class MusicPlayer : MonoBehaviour
 
         if (NotFirst == true)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(transform.gameObject);
         _audioSource = GetComponent<AudioSource>();
-        
-
-      
+     
     }
 
-    public void Update() 
+ 
+
+
+    public void ToggleMusic()
     {
-    }
-
-
-    public void PlayMusic()
-    {
-        if (_audioSource.isPlaying) return;
-        _audioSource.Play();
-    }
-
-    public void StopMusic()
-    {
-        _audioSource.Stop();
-    }
-
-    public void ToggleChnaged(bool toggle)
-    {
-
-
-
-        if (toggle == true)
+        if (_audioSource.mute == true)
         {
-           
-            StopMusic();
+            _audioSource.mute = false;
+            PlayerPrefs.SetInt("Mute", 1); 
+
+        }
+        if (_audioSource.mute == false)
+        {
+            _audioSource.mute = true;
+            PlayerPrefs.SetInt("Mute", 0);
+        }
+
        
-        }
-
-        else if (toggle == false)
-
-        { 
-            PlayMusic(); 
-        }
-    
     }
+ 
 }
