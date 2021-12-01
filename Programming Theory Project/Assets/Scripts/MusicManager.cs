@@ -7,70 +7,39 @@ using UnityEngine.UI;
 public class MusicManager : MonoBehaviour
 {
 
-    public static int muted;
-    public static MusicManager instance;
-    public  Toggle musicButton;
-    public AudioSource musicSource;
+    public static MusicManager instance = null;
 
 
     private void Awake()
     {
-        ToggleButton();
 
-        GetIntMusic();
-
-        if (instance == null)
+        if (instance != null)
         {
-            instance = this;
-            
-            DontDestroyOnLoad(instance);
+            Destroy(gameObject);
         }
        else {
-            Destroy(musicSource); 
-            Destroy(this.gameObject);
+            instance = this;
+            GameObject.DontDestroyOnLoad(gameObject);
         }
 
-        DontDestroyOnLoad(musicButton.gameObject); 
-
     }
 
-    private void ToggleButton()
-    {
-        musicButton = FindObjectOfType<Toggle>();
 
-        if (muted == 1)
-        {
-            musicButton.GetComponent<Toggle>().isOn = true;
-        }
-        else if (muted == 0)
-        {
-            musicButton.GetComponent<Toggle>().isOn = false;
-        }
-    }
 
-    public static void GetIntMusic()
-    {
-        muted = PlayerPrefs.GetInt("Music");
-    }
-
-    public static void SetIntMusic()
-    {
-        PlayerPrefs.SetInt("Music", muted);
-    }
 
     public void ToggleMusic()
     {
-        bool isOn = musicButton.GetComponent<Toggle>().isOn;
-        musicSource.mute = isOn;
-        if (isOn)
+        if(PlayerPrefs.GetInt("Muted", 0) == 0)
         {
-            muted = 1;
+            PlayerPrefs.SetInt("Muted", 1); 
+            //AudioListener.volume=1; 
         }
         else
         {
-            muted = 0;
+            PlayerPrefs.SetInt("Muted", 0);
+            //AudioListener.volume=0; 
+
         }
 
-       SetIntMusic();
     }
 }
