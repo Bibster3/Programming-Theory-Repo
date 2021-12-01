@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
@@ -44,7 +45,9 @@ public class MenuScript : MonoBehaviour
     }
 
     public void QuitGame()
+
     {
+        AudioListener.volume = 0;
         Debug.Log("Quit");
        fader.gameObject.SetActive(true);
         LeanTween.alpha(fader, 0, 0);
