@@ -12,6 +12,9 @@ TagManager:
   - 4
   - Sphere
   - Music
+  - PointA
+  - PointB
+  - Arrow
   layers:
   - Default
   - TransparentFX

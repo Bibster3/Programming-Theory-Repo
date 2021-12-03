@@ -22,7 +22,7 @@ public class MenuScript : MonoBehaviour
         fader.gameObject.SetActive(true);
           LeanTween.alpha(fader, 0, 0);
           LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() => {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
           }); 
 
     }
@@ -32,7 +32,7 @@ public class MenuScript : MonoBehaviour
        fader.gameObject.SetActive(true);
         LeanTween.alpha(fader, 0, 0);
         LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() => { 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
        }); 
     }
     public void LoadRules()
