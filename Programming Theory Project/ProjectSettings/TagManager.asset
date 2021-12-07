@@ -15,6 +15,7 @@ TagManager:
   - PointA
   - PointB
   - Arrow
+  - Circle
   layers:
   - Default
   - TransparentFX
